@@ -7,6 +7,7 @@ export interface Game {
   name: string;
   uri: string;
   platforms: Platform[];
+  metacritic: number;
 }
 
 export interface Platform {
@@ -18,6 +19,7 @@ export interface Platform {
 interface FetchGamesResponse {
   count: number;
   gameList: Game[];
+  metacritic: number;
 }
 
 const useGames = () => {
