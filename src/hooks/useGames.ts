@@ -3,9 +3,16 @@ import apiClient from "../services/apiClient";
 import { CanceledError } from "axios";
 
 export interface Game {
-  id: number;
+  gameId: number;
   name: string;
   uri: string;
+  platforms: Platorm[];
+}
+
+interface Platorm {
+  platformId: number;
+  name: string;
+  slug: string;
 }
 
 interface FetchGamesResponse {
@@ -21,7 +28,9 @@ const useGames = () => {
     const controller = new AbortController();
 
     apiClient
-      .get<FetchGamesResponse>("/games", { signal: controller.signal })
+      .get<FetchGamesResponse>("Game/GetGamesWithCount/", {
+        signal: controller.signal,
+      })
       .then((response) => {
         setGames(response.data.gameList);
       })
