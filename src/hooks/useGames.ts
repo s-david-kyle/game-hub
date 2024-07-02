@@ -6,10 +6,10 @@ export interface Game {
   gameId: number;
   name: string;
   uri: string;
-  platforms: Platorm[];
+  platforms: Platform[];
 }
 
-interface Platorm {
+export interface Platform {
   platformId: number;
   name: string;
   slug: string;
