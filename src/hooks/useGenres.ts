@@ -9,7 +9,7 @@ export interface Genre {
 
 interface FetchGamesResponse {
   count: number;
-  genreList: Genre[];
+  result: Genre[];
 }
 
 const useGenres = () => {
@@ -25,7 +25,7 @@ const useGenres = () => {
         signal: controller.signal,
       })
       .then((response) => {
-        setGenre(response.data.genreList);
+        setGenre(response.data.result);
         setLoading(false);
       })
       .catch((error) => {

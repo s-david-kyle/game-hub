@@ -18,7 +18,7 @@ export interface Platform {
 
 interface FetchGamesResponse {
   count: number;
-  gameList: Game[];
+  results: Game[];
   metacritic: number;
 }
 
@@ -35,7 +35,7 @@ const useGames = () => {
         signal: controller.signal,
       })
       .then((response) => {
-        setGames(response.data.gameList);
+        setGames(response.data.results);
         setLoading(false);
       })
       .catch((error) => {

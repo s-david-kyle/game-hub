@@ -20,6 +20,7 @@ const useData = <T>(endpoint: string) => {
         signal: controller.signal,
       })
       .then((response) => {
+        var temp = response.data;
         setData(response.data.results);
         setLoading(false);
       })
