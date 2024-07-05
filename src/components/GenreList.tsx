@@ -10,9 +10,10 @@ import useGenres, { Genre } from "../hooks/useGenres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -30,7 +31,13 @@ const GenreList = ({ onSelectGenre }: Props) => {
               borderRadius={8}
               src={genre.imageBackground}
             ></Image>
-            <Button onClick={() => onSelectGenre(genre)} variant="link">
+            <Button
+              fontWeight={
+                genre.genreId == selectedGenre?.genreId ? "bold" : "normal"
+              }
+              onClick={() => onSelectGenre(genre)}
+              variant="link"
+            >
               {genre.name}
             </Button>
           </HStack>
