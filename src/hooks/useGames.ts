@@ -15,11 +15,17 @@ export interface Platform {
   slug: string;
 }
 
-const useGames = (selectedGenre: Genre | null) =>
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null
+) =>
   useData<Game>(
     "Game/GetGamesWithCount",
     {
-      params: { genres: selectedGenre?.genreId },
+      params: {
+        genres: selectedGenre?.genreId,
+        platforms: selectedPlatform?.platformId,
+      },
     },
     [selectedGenre?.genreId]
   );
