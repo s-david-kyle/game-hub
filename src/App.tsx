@@ -38,6 +38,7 @@ function App() {
       <GridItem gridArea="main">
         <PlatformSelector
           onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+          selectedPlatform={selectedPlatform}
         />
         <GameGrid
           selectedPlatform={selectedPlatform}

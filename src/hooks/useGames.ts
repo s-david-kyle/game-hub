@@ -27,7 +27,7 @@ const useGames = (
         platforms: selectedPlatform?.platformId,
       },
     },
-    [selectedGenre?.genreId]
+    [selectedGenre?.genreId, selectedPlatform?.platformId]
   );
 
 export default useGames;
