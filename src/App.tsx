@@ -6,12 +6,12 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres.ts";
 import PlatformSelector from "./components/PlatformSelector.tsx";
 import { Platform } from "./hooks/useGames.ts";
-import SortSelected from "./components/SortSelected.tsx";
+import SortSelected, { SortOrder } from "./components/SortSelected.tsx";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
-  sortOrder?: string;
+  sortOrder: SortOrder | null;
 }
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
             selectedPlatform={gameQuery.platform}
           />
           <SortSelected
+            selectedSortOrder={gameQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>
               setGameQuery({ ...gameQuery, sortOrder })
             }
