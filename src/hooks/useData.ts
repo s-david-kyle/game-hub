@@ -26,7 +26,6 @@ const useData = <T>(
           ...requstConfig,
         })
         .then((response) => {
-          var temp = response.data;
           setData(response.data.results);
           setLoading(false);
         })
